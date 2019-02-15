@@ -13,13 +13,13 @@
 <Connector port="8080" protocol="HTTP/1.1" URIEncoding="utf-8"
                connectionTimeout="20000"
                redirectPort="8443" />
-    <!-- A "Connector" using the shared thread pool-->
+<!-- A "Connector" using the shared thread pool-->
 ```
 
 ## POST请求乱码
 修改web.xml文件，添加spring的编码过滤器
 ```
-<!-- 配置编码方式过滤器,注意一点:要配置在所有过滤器的前面 -->
+  <!-- 配置编码方式过滤器,注意一点:要配置在所有过滤器的前面 -->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
