@@ -10,7 +10,7 @@
 ## 别名
 ```
 <select id="getDeptByIdStep" resultMap="MyDeptStep" >
-  		select id,dept_name departmentName from tbl_dept where id=#{id}
+	select id,dept_name departmentName from tbl_dept where id=#{id}
 </select>
 ```
 
@@ -18,11 +18,11 @@
 使用自定义ResultMap，column指定数据库字段名，property指定实体类属性名
 ```
 <resultMap type="com.guigu.mybatis.bean.Employee" id="MySimpleEmp">
-		<id column="id" property="id"/>
-		<result column="last_name" property="lastName"/>
-		<result column="email" property="email"/>
-		<result column="gender" property="gender"/>
-	</resultMap>
+	<id column="id" property="id"/>
+	<result column="last_name" property="lastName"/>
+	<result column="email" property="email"/>
+	<result column="gender" property="gender"/>
+</resultMap>
 	
 <select id="getEmpById"  resultMap="MySimpleEmp">
 	select * from tbl_employee where id=#{id}
