@@ -12,4 +12,8 @@
   * [SpringMVC如何解决中文乱码问题](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Bean_Scope/SpringMVCQ1.md)
   * [SpringMVC运行流程](https://github.com/Ywfy/Learning-summary-for-SpringMVC/blob/master/process/README.md)
   * [Mybatis数据库字段名和实体类属性名不一致](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Bean_Scope/Mybatis/README.md)
+* Other
+  * [Linux常用服务命令](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Other/Linux_Service.md)
+  * [索引](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Other/Indexes.md)
+  * [JVM垃圾回收机制](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Other/JVM_GC.md)
   
