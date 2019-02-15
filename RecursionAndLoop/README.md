@@ -17,11 +17,11 @@
 ```
 public int f(int n){
     if(n < 1)
-			throw new IllegalArgumentException("n不能小于1");
-		if(n == 1 || n == 2)
-			return n;
-		else
-			return f(n-1) + f(n-2);
+	throw new IllegalArgumentException("n不能小于1");
+	if(n == 1 || n == 2)
+		return n;
+	else
+		return f(n-1) + f(n-2);
 }
 ```
 
