@@ -1,4 +1,5 @@
 # 八大排序算法
+![无法加载图片](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/SortMethod/%E5%A4%8D%E6%9D%82%E5%BA%A6.png)<br>
 
 ## 1、插入排序
 将第一个元素视为已经排好序的，然后后面一个一个比较插入到前面的序列中<br>
@@ -32,7 +33,7 @@ public class insert_sort {
 希尔排序是非稳定排序算法。该方法因D.L.Shell于1959年提出而得名。<br>
 希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，<br>
 整个文件恰被分成一组，算法便终止。<br>
-![无法加载图片]()
+![无法加载图片](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/SortMethod/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F.jpg)<br>
 ```
 public class Shell_Sort {
     public static void sort(int[] array){
