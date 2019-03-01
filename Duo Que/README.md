@@ -264,17 +264,17 @@ FROM
 	test
 WHERE
 	id not in (
+		SELECT
+			dt.maxid
+		FROM
+			(
 				SELECT
-					dt.maxid
+					MAX(id) AS maxid
 				FROM
-							(
-									SELECT
-											MAX(id) AS maxid
-									FROM
-											test
-									GROUP BY
-											a
-							) dt
+					test
+				GROUP BY
+					a
+			) dt
 	)
 ```
 ![无法加载图片](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Duo%20Que/Image/%E9%99%A4%E9%87%8D2.png)<br>
