@@ -175,3 +175,85 @@ public class Stack2Queue {
 ```
 
 ## 6、快乐数
+```
+import java.util.Scanner;
+
+public class HappyNum {
+    public static boolean isHappy(int n){
+        if(n < 0)
+            throw new IllegalArgumentException("The Input Number should be gather than 0");
+
+        while(n != 1 && n != 4){
+            int tmp = 0;
+            while(n != 0){
+                tmp += (n % 10) * (n % 10);
+                n = n / 10;
+            }
+            n = tmp;
+        }
+        return n == 1;
+    }
+
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        int num = scan.nextInt();
+        System.out.println(num + " happy: " + isHappy(num));
+    }
+}
+```
+
+## 7、合并两个有序数组
+```
+public class Merge {
+    public static int[] merge(int[] a, int[] b){
+        int[] n = new int[a.length + b.length];
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        while(i < a.length && j < b.length){
+            //升序
+            if(a[i] < b[j]){
+                n[k++] = a[i++];
+            }else{
+                n[k++] = b[j++];
+            }
+        }
+
+        while(i < a.length){
+            n[k++] = a[i++];
+        }
+        while(j < b.length){
+            n[k++] = b[j++];
+        }
+        return n;
+    }
+
+    public static void main(String[] args){
+        int[] a = {1,3,5,7,9};
+        int[] b = {2,4,6,8};
+        int[] n = merge(a, b);
+        for(int i = 0 ; i < n.length ; i++){
+            System.out.print(n[i] + ",");
+        }
+    }
+}
+```
+
+## 8、约瑟夫环问题
+```
+public class ysfhQuestion {
+
+    //sum表起始总人数，value表最大报到数，返回第n次被扔海里的编号
+    public static int ysfh(int sum, int value, int n){
+        if(n == 1)
+            return (sum + value - 1) % sum;
+        else
+            return (ysfh(sum - 1, value, n - 1) + value) % sum;
+    }
+
+    public static void main(String[] args){
+        System.out.println(ysfh(10, 4, 5));
+    }
+}
+```
