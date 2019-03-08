@@ -216,5 +216,60 @@ public class Quick_Sort {
 ## 7、堆排序
 堆排序其实就是利用大顶堆(小顶堆)的根节点就是最大值(最小值),不断地进行取出元素，最后的结果就是顺序的
 
+## 8、桶排序
+![无法加载图片](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/SortMethod/t.jpg)<br>
+详情可以查看[视频](https://www.bilibili.com/video/av17940595?from=search&seid=13722490270188887524)<br>
+```
+public class BucketSort {
+    public static void basket(int data[])//data为待排序数组
+    {
+        int n=data.length;
+        int bask[][]=new int[10][n];
+        int index[]=new int[10];
+        int max=Integer.MIN_VALUE;
+        //为了确定数的最大长度
+        for(int i=0;i<n;i++)
+        {
+            max=max>(Integer.toString(data[i]).length())?max:(Integer.toString(data[i]).length());
+        }
+        String str;
+        //这里是从低位到高位不断比较的过程
+        //先排序个位，再排序十位，再排序百位...
+        for(int i=max-1;i>=0;i--)
+        {
+            for(int j=0;j<n;j++)
+            {
+                //以下过程将小于Max位数的整型前面补0，使得所有数的位数相同
+                str="";
+                if(Integer.toString(data[j]).length()<max)
+                {
+                    for(int k=0;k<max-Integer.toString(data[j]).length();k++)
+                        str+="0";
+                }
+                str+=Integer.toString(data[j]);
+                bask[str.charAt(i)-'0'][index[str.charAt(i)-'0']++]=data[j];
+            }
+            //此处j代表桶，一共有10个桶
+            //index[j]代表第j个桶有多少个元素在里面
+            int pos=0;
+            for(int j=0;j<10;j++)
+            {
+                for(int k=0;k<index[j];k++)
+                {
+                    data[pos++]=bask[j][k];
+                }
+            }
+            for(int x=0;x<10;x++)index[x]=0;
+        }
+    }
+
+    public static void main(String[] args){
+        int[] a = {5,800,4,60,8,1,0,20,3,6};
+        basket(a);
+        for(int i = 0 ; i < a.length ; i++)
+            System.out.print(a[i] + " ");
+    }
+}
+```
 ## 8、基数排序
 https://www.cnblogs.com/skywang12345/p/3603669.html<br>
