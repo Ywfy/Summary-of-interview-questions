@@ -12,8 +12,8 @@ JVM体系结构概览<br>
 
 
 ## GC算法
-## 如何判断一个对象是否可回收
-### 引用计数法
+### 如何判断一个对象是否可回收
+#### 引用计数法
 给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器为0的对象就是不可能再被使用的。
 
 缺点：
@@ -21,7 +21,7 @@ JVM体系结构概览<br>
 * 较难处理循环引用
 * <strong>JVM的实现一般不采用这种方式</strong>
 
-### 可达性分析
+#### 可达性分析
 将一系列的gc roots对象作为起始点，从这些节点向下搜索，搜索走过的路径称为是引用链，当gc roots对象到一个对象没有引用链的时候，称为这个对象是不可达的，就可以进行回收。<br>
 ![无法加载图片](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Other/kdx.png)<br>
 上图中Object5、6、7就是不可达的，可以进行回收<br>
@@ -32,8 +32,8 @@ Java虚拟机将以下对象定义为 GC Roots:
 * 方法区中常量引用的对象
 * 本地方法栈中JNI[即一般说的Native]引用的对象
 
-
-### 复制算法(Copying)
+### 现代虚拟机中的垃圾搜集算法
+#### 复制算法(Copying)
 * 年轻代中使用的是Minor GC，这种GC算法采用的是复制算法(Copying)
 * 将原有的内存空间分为两块，每次只使用其中一块，在垃圾回收时，将正在使用的内存中的存活对象复制到未使用的内存块中，之后，清除正在使用的内存块中的所有对象，交换两个内存的角色，完成垃圾回收。
 
@@ -46,12 +46,12 @@ Java虚拟机将以下对象定义为 GC Roots:
 缺点：
 * 需要双倍空间，造成空间的极大浪费
 
-### 标记清除(Mark-Sweep)
+#### 标记清除(Mark-Sweep)
 * 老年代一般是由标记清除或者是标记清除与标记整理的混合实现
 
 ![无法加载图片](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Other/bz.png)<br>
 
-### 标记压缩(Mark-Compact)
+#### 标记压缩(Mark-Compact)
 * 发生在老年代
 
 ![图片无法加载](https://github.com/Ywfy/Summary-of-interview-questions/blob/master/Other/bjzl.png)<br>
